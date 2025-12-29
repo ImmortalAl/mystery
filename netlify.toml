@@ -1,0 +1,21 @@
+# Netlify Configuration for Mystery Babylon Site
+# This site will be accessible at immortalal.space
+
+[build]
+  # No build process needed - static HTML files
+  publish = "."
+
+[[redirects]]
+  # Redirect root to mystery.html (main entry point)
+  from = "/"
+  to = "/mystery.html"
+  status = 301
+
+[[headers]]
+  # Apply headers to all files
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
